@@ -10,7 +10,7 @@ import CoreData
 
 class ViewController: UIViewController {
     
-    // MARK: - IBOutlets
+    // MARK: - IBOutlet
     @IBOutlet weak var movieCollectionView: UICollectionView!
     
     // Private Properties
@@ -43,7 +43,7 @@ extension ViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? NewsCollectionViewCell else {
             return UICollectionViewCell()
         }
-        cell.backgroundColor = .cyan
+        cell.backgroundColor = .clear
         cell.movies = viewModel.movies[indexPath.row]
         return cell
     }
@@ -51,6 +51,9 @@ extension ViewController: UICollectionViewDataSource {
 
 //MARK: - UICollectionViewDelegate
 extension ViewController : UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        0
+    }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: UIScreen.main.bounds.width, height: view.bounds.height - 200)

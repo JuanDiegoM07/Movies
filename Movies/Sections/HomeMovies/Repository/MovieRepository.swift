@@ -48,7 +48,6 @@ class MovieRepository: MovieRepositoryProtocol {
             } else {
                 print("Error")
             }
-               
         })
         task.resume()
     }
@@ -59,6 +58,7 @@ class MovieRepository: MovieRepositoryProtocol {
         }
             let movieCoreData = MovieCD(context: appDelegate.persistentContainer.viewContext)
             movieCoreData.name = movies.name
+        
             appDelegate.saveContext()
     }
     
